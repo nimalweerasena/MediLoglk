@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="test1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="todate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="inscode" class="java.lang.String"/>
+	<parameter name="fromdate" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="p_institute" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     dgs_surgicallist.`d_srno` AS dgs_surgicallist_d_srno,
+     dgs_surgicallist.`d_name` AS dgs_surgicallist_d_name,
+     dgs_surgicallist.`d_unit` AS dgs_surgicallist_d_unit,
+     dgs_surgicallist.`d_section` AS dgs_surgicallist_d_section,
+     dgs_surgicallist.`d_whno` AS dgs_surgicallist_d_whno,
+     dgs_surgicallist.`d_reodrlevel` AS dgs_surgicallist_d_reodrlevel,
+     dgs_surgicallist.`d_user` AS dgs_surgicallist_d_user,
+     dgs_surgicallist.`d_sysdate` AS dgs_surgicallist_d_sysdate,
+     temp_ledger.`g_itemcode` AS temp_ledger_g_itemcode,
+     temp_ledger.`g_Rqnty` AS temp_ledger_g_Rqnty,
+     temp_ledger.`g_Iqnty` AS temp_ledger_g_Iqnty,
+     temp_ledger_opbal.`balance` AS temp_ledger_opbal_balance,
+     temp_transaction.`g_grnno` AS temp_transaction_g_grnno,
+     temp_transaction.`g_invoseno` AS temp_transaction_g_invoseno,
+     temp_transaction.`g_incode` AS temp_transaction_g_incode,
+     temp_transaction.`g_ordercode` AS temp_transaction_g_ordercode,
+     temp_transaction.`g_date` AS temp_transaction_g_date,
+     temp_transaction.`g_sysdate` AS temp_transaction_g_sysdate,
+     temp_transaction.`g_itemcode` AS temp_transaction_g_itemcode,
+     temp_transaction.`g_initprice` AS temp_transaction_g_initprice,
+     temp_transaction.`g_expdate` AS temp_transaction_g_expdate,
+     temp_transaction.`g_coment` AS temp_transaction_g_coment,
+     temp_transaction.`g_user` AS temp_transaction_g_user
+FROM
+     `temp_transaction` temp_transaction INNER JOIN `dgs_surgicallist` dgs_surgicallist ON temp_transaction.`g_itemcode` = dgs_surgicallist.`d_srno`
+     INNER JOIN `temp_ledger` temp_ledger ON temp_transaction.`g_itemcode` = temp_ledger.`g_itemcode`
+     INNER JOIN `temp_ledger_opbal` temp_ledger_opbal ON temp_ledger.`g_itemcode` = temp_ledger_opbal.`g_itemcode`
+WHERE
+     temp_transaction.`g_date` BETWEEN $P{fromdate} AND $P{todate}
+ORDER BY
+     temp_transaction.`g_itemcode` ASC,
+     temp_transaction.`g_grnno` ASC,
+     temp_transaction.`g_invoseno` ASC,
+     temp_transaction.`g_date` ASC]]>
+	</queryString>
+	<field name="dgs_surgicallist_d_srno" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_name" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_unit" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_section" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_whno" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_reodrlevel" class="java.lang.Integer"/>
+	<field name="dgs_surgicallist_d_user" class="java.lang.String"/>
+	<field name="dgs_surgicallist_d_sysdate" class="java.lang.String"/>
+	<field name="temp_ledger_g_itemcode" class="java.lang.String"/>
+	<field name="temp_ledger_g_Rqnty" class="java.lang.Double"/>
+	<field name="temp_ledger_g_Iqnty" class="java.lang.Double"/>
+	<field name="temp_ledger_opbal_balance" class="java.lang.Double"/>
+	<field name="temp_transaction_g_grnno" class="java.lang.String"/>
+	<field name="temp_transaction_g_invoseno" class="java.lang.String"/>
+	<field name="temp_transaction_g_incode" class="java.lang.String"/>
+	<field name="temp_transaction_g_ordercode" class="java.lang.Integer"/>
+	<field name="temp_transaction_g_date" class="java.sql.Date"/>
+	<field name="temp_transaction_g_sysdate" class="java.sql.Date"/>
+	<field name="temp_transaction_g_itemcode" class="java.lang.String"/>
+	<field name="temp_transaction_g_initprice" class="java.lang.Double"/>
+	<field name="temp_transaction_g_expdate" class="java.sql.Date"/>
+	<field name="temp_transaction_g_coment" class="java.lang.String"/>
+	<field name="temp_transaction_g_user" class="java.lang.String"/>
+	<variable name="temp_ledger_g_Rqnty_1" class="java.lang.Double" resetType="Group" resetGroup="itemgrp" calculation="Sum">
+		<variableExpression><![CDATA[$F{temp_ledger_g_Rqnty}]]></variableExpression>
+	</variable>
+	<variable name="temp_ledger_g_Iqnty_1" class="java.lang.Double" resetType="Group" resetGroup="itemgrp" calculation="Sum">
+		<variableExpression><![CDATA[$F{temp_ledger_g_Iqnty}]]></variableExpression>
+	</variable>
+	<variable name="temp_ledger_opbal_balance_1" class="java.lang.Double" resetType="Group" resetGroup="itemgrp" calculation="Sum">
+		<variableExpression><![CDATA[$F{temp_ledger_opbal_balance}]]></variableExpression>
+	</variable>
+	<group name="itemgrp">
+		<groupExpression><![CDATA[$F{temp_transaction_g_itemcode}]]></groupExpression>
+		<groupHeader>
+			<band height="50"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="36">
+				<textField pattern="#,##0.00">
+					<reportElement x="138" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{temp_ledger_g_Rqnty_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="276" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{temp_ledger_g_Iqnty_1}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="414" y="0" width="100" height="20"/>
+					<textElement/>
+					<textFieldExpression class="java.lang.Double"><![CDATA[$V{temp_ledger_opbal_balance_1}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="138" height="20"/>
+				<textElement/>
+				<text><![CDATA[temp_ledger_g_itemcode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="138" y="0" width="138" height="20"/>
+				<textElement/>
+				<text><![CDATA[temp_ledger_g_Rqnty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="276" y="0" width="138" height="20"/>
+				<textElement/>
+				<text><![CDATA[temp_ledger_g_Iqnty]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="414" y="0" width="138" height="20"/>
+				<textElement/>
+				<text><![CDATA[temp_ledger_opbal_balance]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="29" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{temp_ledger_g_itemcode}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="138" y="0" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{temp_ledger_g_Rqnty}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="276" y="0" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{temp_ledger_g_Iqnty}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="414" y="0" width="138" height="20"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.Double"><![CDATA[$F{temp_ledger_opbal_balance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="23" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

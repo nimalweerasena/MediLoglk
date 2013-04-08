@@ -1,0 +1,12 @@
+Version 4.0.0
+
+1 	add new Table  = "unit_price"
+2 	Change Item Code Field length = 8
+3 	Change User Password = PASSWOrD
+4 	Add New Table = "abc_analysis"
+5 	Add New DataBase = "vaccine_db"
+6 	Creare Viewer on the Database = "ttl_estimate"
+7 	add new Table  = "incodeltr"
+8 	add new Table  = "transaction_sub1"
+9	add new Table  = "invoceno_sub1"
+
