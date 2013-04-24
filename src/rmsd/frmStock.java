@@ -486,7 +486,7 @@ public class frmStock extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -653,16 +653,12 @@ public class frmStock extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_cmbunitActionPerformed
 
     private void btnprintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprintActionPerformed
-        try {
-            Map m = new HashMap();
-            m.put("p_institute", a);
 
-
-                voidmodule.generateReport("//Report//stock_with_0.jrxml", m);
-
-        } catch (ArrayIndexOutOfBoundsException aiobe) {
-            JOptionPane.showMessageDialog(null, "PLS SELCET CUSTOMER FROM TABLE ");
-        }
+                rptstock open = new rptstock();
+        MDI.addFrame(open);
+//        jDesktopPane1.add(open);
+//        open.setVisible(true);
+        open.setuser(dbconnector.uname);
     }//GEN-LAST:event_btnprintActionPerformed
 
     private void cmbvedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbvedActionPerformed
