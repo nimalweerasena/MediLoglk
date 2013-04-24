@@ -290,7 +290,7 @@ public class frmDBUpdate extends javax.swing.JInternalFrame {
 
 
             dbconnector.insertquery("CREATE TABLE IF NOT EXISTS `" + DBName + "`.`substitute` ("
-                    + "`invoceNo` INTEGER NOT NULL DEFAULT 0)"
+                    + "`invoceNo` INTEGER NOT NULL DEFAULT 0,"
                     + "`g_grnno` VARCHAR(15) NOT NULL,"
                     + "`g_lot` VARCHAR(15) NOT NULL,"
                     + "`g_itemcode` VARCHAR(8) NOT NULL,"
@@ -298,7 +298,12 @@ public class frmDBUpdate extends javax.swing.JInternalFrame {
                     + "`tran_grnno` VARCHAR(15) NOT NULL,"
                     + "`tran_lot` VARCHAR(15) NOT NULL,"
                     + "`tran_itemcode` VARCHAR(8) NOT NULL,"
-                    + "`g_sysdate` DATE NOT NULL DEFAULT '0000-00-00'");
+                    + "`g_sysdate` DATE NOT NULL DEFAULT '0000-00-00')");
+
+            dbconnector.insertquery("CREATE TABLE IF NOT EXISTS `" + DBName + "`.`temp_ledger_opbal` ("
+                    + "`g_itemcode` VARCHAR(15) NOT NULL,"
+                    + "`balance` DOUBLE NOT NULL DEFAULT 0.0,"
+                    + "`bal`  DOUBLE NOT NULL DEFAULT 0.0)");
 
 
 
@@ -325,7 +330,7 @@ public class frmDBUpdate extends javax.swing.JInternalFrame {
 
             //   dbconnector.insertquery("ALTER TABLE `rmsd_db_pu`.`invoceno` ADD COLUMN `incoce` VARCHAR(6) NOT NULL AFTER `invoceNo`");
 
-            
+
             dbconnector.insertquery("create table IF NOT EXISTS temp_ledger_opbal SELECT t.`g_itemcode`,sum(t.`g_Rqnty`- t.`g_Iqnty`) as balance, sum(t.`g_qnty`) as bal FROM `transaction` t ");
         } catch (SQLException ex) {
             Logger.getLogger(frmDBUpdate.class.getName()).log(Level.SEVERE, null, ex);

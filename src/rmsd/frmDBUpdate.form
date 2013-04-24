@@ -137,7 +137,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="btnupdateDB" max="32767" attributes="0"/>
-                      <Component id="btnexit" pref="106" max="32767" attributes="0"/>
+                      <Component id="btnexit" pref="110" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
