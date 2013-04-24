@@ -469,8 +469,9 @@ public class rptledger extends javax.swing.JInternalFrame {
             DateFormat dfyear = new SimpleDateFormat("yyyy");
             Date fromDate = txtfromDate.getDate();
             Date toDate = txttoDate.getDate();
-            String format = new SimpleDateFormat("yyyy-MM-dd").format(fromDate);
-            cteateItemOpenBalance(format);
+            String formatFdate = new SimpleDateFormat("yyyy-MM-dd").format(fromDate);
+            String formatTdate = new SimpleDateFormat("yyyy-MM-dd").format(toDate);
+            cteateItemOpenBalance(formatFdate);
 
             Map m = new HashMap();
             
@@ -499,7 +500,8 @@ public class rptledger extends javax.swing.JInternalFrame {
                     for (int xx = 0; xx < Rcount; xx++) {
                         pb = xx;
                         String icode = tblto.getValueAt(xx, 0).toString();
-                        dbconnector.insertquery("INSERT INTO temp_transaction SELECT * FROM transaction WHERE g_itemcode ='" + icode + "'AND g_year ='" + fyear + "'");
+                        dbconnector.insertquery("INSERT INTO temp_transaction SELECT * FROM transaction WHERE g_itemcode ='" + icode + "'AND g_date BETWEEN '" + (formatFdate) + "' AND '" + (formatTdate) + "'");
+                       // dbconnector.insertquery("INSERT INTO temp_transaction SELECT * FROM transaction WHERE g_itemcode ='" + icode + "'");
 
 
 
