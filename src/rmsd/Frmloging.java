@@ -51,7 +51,7 @@ public class Frmloging extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("MySql Server  Administrator");
@@ -87,6 +87,11 @@ public class Frmloging extends javax.swing.JFrame {
                 txtUnameFocusLost(evt);
             }
         });
+        txtUname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtUnameKeyPressed(evt);
+            }
+        });
         jPanel5.add(txtUname);
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
@@ -104,6 +109,11 @@ public class Frmloging extends javax.swing.JFrame {
         txtpassword.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 txtpasswordFocusLost(evt);
+            }
+        });
+        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpasswordKeyPressed(evt);
             }
         });
         jPanel5.add(txtpassword);
@@ -232,7 +242,7 @@ public class Frmloging extends javax.swing.JFrame {
         jPanel6.add(jLabel12);
 
         CcmbDatabase.setEditable(true);
-        CcmbDatabase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "immr_database" }));
+        CcmbDatabase.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Drugs", "Surgical", "Vaccine", "MySql" }));
         CcmbDatabase.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 CcmbDatabaseFocusLost(evt);
@@ -323,8 +333,7 @@ public class Frmloging extends javax.swing.JFrame {
         logging(); 
 
     }//GEN-LAST:event_btnlogingActionPerformed
- 
-   void logging() {
+    void logging() {
         uname = txtUname.getText();
         pword = txtpassword.getText();
         dbconnector.host = txtHost.getText();
@@ -411,13 +420,25 @@ public class Frmloging extends javax.swing.JFrame {
 
     private void txtpasswordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtpasswordFocusLost
     }//GEN-LAST:event_txtpasswordFocusLost
+
+    private void txtpasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyPressed
+           if (evt.getKeyCode() == 10) {
+            btnloging.requestFocus();
+        }
+    }//GEN-LAST:event_txtpasswordKeyPressed
+
+    private void txtUnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUnameKeyPressed
+        if (evt.getKeyCode() == 10) {
+            txtpassword.requestFocus();
+        }
+    }//GEN-LAST:event_txtUnameKeyPressed
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
 
             public void run() {
                 Frmloging FS = new Frmloging();
                 FS.setVisible(true);
-                FS.setSize(455, 260);
+                FS.setSize(455, 280);
             }
         });
     }
