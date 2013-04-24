@@ -6,6 +6,8 @@
 	<parameter name="p_institute" class="java.lang.String" isForPrompting="false">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
+	<parameter name="qnfrom" class="java.lang.Integer"/>
+	<parameter name="qnto" class="java.lang.Integer"/>
 	<queryString>
 		<![CDATA[SELECT
      sum(transaction.`g_qnty`) AS balance,
@@ -19,7 +21,7 @@ GROUP BY
      transaction.`g_itemcode`,
      dgs_surgicallist.`d_name`
 HAVING
-     sum(transaction.`g_qnty`) = 0
+     sum(transaction.`g_qnty`)  BETWEEN $P{qnfrom} AND $P{qnto}
 ORDER BY
      transaction.`g_itemcode` ASC]]>
 	</queryString>

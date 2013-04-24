@@ -114,31 +114,31 @@ ORDER BY
 			<band/>
 		</groupHeader>
 		<groupFooter>
-			<band height="24">
+			<band height="20">
 				<textField pattern="#,##0">
-					<reportElement x="398" y="1" width="60" height="20"/>
-					<textElement textAlignment="Right">
+					<reportElement x="382" y="0" width="76" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{transaction_g_Rqnty_1}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0.00">
-					<reportElement x="458" y="2" width="78" height="20"/>
-					<textElement textAlignment="Right">
+					<reportElement x="458" y="0" width="78" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{Subvalue}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="3" y="2" width="56" height="20"/>
-					<textElement>
+					<reportElement x="3" y="0" width="56" height="20"/>
+					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{transaction_g_itemcode}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="60" y="2" width="336" height="20"/>
-					<textElement>
+					<reportElement x="60" y="0" width="322" height="20"/>
+					<textElement verticalAlignment="Middle">
 						<font isBold="false"/>
 					</textElement>
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{dgs_surgicallist_d_name} + "  ( " + $F{dgs_surgicallist_d_unit} + " )"]]></textFieldExpression>
@@ -202,63 +202,42 @@ ORDER BY
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="32" splitType="Stretch">
+		<band height="18" splitType="Stretch">
 			<rectangle radius="10">
-				<reportElement x="0" y="1" width="539" height="31"/>
+				<reportElement x="-1" y="-1" width="539" height="19"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="204" y="8" width="87" height="19"/>
-				<textElement textAlignment="Center">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Receipt  Date]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="382" y="8" width="72" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement x="382" y="0" width="72" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Receipt Qnty]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="36" y="8" width="79" height="20"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[STV  No]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="293" y="1" width="42" height="27"/>
-				<textElement textAlignment="Center">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Rcpt Type]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="340" y="1" width="32" height="27"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Unit Prize]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="458" y="7" width="78" height="20"/>
-				<textElement textAlignment="Right">
+				<reportElement x="458" y="0" width="78" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Value (RS)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="124" y="7" width="75" height="20"/>
-				<textElement>
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[Lot No]]></text>
+				<reportElement x="3" y="0" width="56" height="18"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[S/N]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="3" y="8" width="33" height="20"/>
-				<textElement/>
-				<text><![CDATA[S/N]]></text>
+				<reportElement x="59" y="0" width="323" height="18"/>
+				<box>
+					<pen lineWidth="0.5"/>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Item Name]]></text>
 			</staticText>
 		</band>
 	</columnHeader>

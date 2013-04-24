@@ -143,14 +143,15 @@ ORDER BY
 			<band/>
 		</groupHeader>
 		<groupFooter>
-			<band height="49">
+			<band height="20">
 				<textField pattern="#,##0.00">
 					<reportElement x="505" y="0" width="64" height="20" forecolor="#000000"/>
-					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-						<topPen lineWidth="0.5" lineStyle="Solid"/>
-						<leftPen lineWidth="0.5" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.5" lineStyle="Solid"/>
-						<rightPen lineWidth="0.5" lineStyle="Solid"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="true"/>
@@ -158,25 +159,27 @@ ORDER BY
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{sumvalue}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0;-#,##0">
-					<reportElement x="316" y="0" width="71" height="20" forecolor="#000000"/>
-					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-						<topPen lineWidth="0.5" lineStyle="Solid"/>
-						<leftPen lineWidth="0.5" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.5" lineStyle="Solid"/>
-						<rightPen lineWidth="0.5" lineStyle="Solid"/>
+					<reportElement x="311" y="0" width="76" height="20" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
 					</textElement>
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{ttlissue}]]></textFieldExpression>
 				</textField>
-				<textField pattern="#,##0.00 %">
+				<textField pattern="#,##0.0 %">
 					<reportElement x="462" y="0" width="43" height="20" forecolor="#000000"/>
-					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-						<topPen lineWidth="0.5" lineStyle="Solid"/>
-						<leftPen lineWidth="0.5" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.5" lineStyle="Solid"/>
-						<rightPen lineWidth="0.5" lineStyle="Solid"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
@@ -184,12 +187,13 @@ ORDER BY
 					<textFieldExpression class="java.lang.Double"><![CDATA[$V{percentage}]]></textFieldExpression>
 				</textField>
 				<textField pattern="#,##0;-#,##0">
-					<reportElement isPrintRepeatedValues="false" x="244" y="0" width="72" height="20" forecolor="#000000"/>
-					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-						<topPen lineWidth="0.5" lineStyle="Solid"/>
-						<leftPen lineWidth="0.5" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.5" lineStyle="Solid"/>
-						<rightPen lineWidth="0.5" lineStyle="Solid"/>
+					<reportElement isPrintRepeatedValues="false" x="244" y="0" width="67" height="20" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
@@ -197,7 +201,7 @@ ORDER BY
 					<textFieldExpression class="java.lang.Double"><![CDATA[$F{ttl_estimate_estimate_estimate_Qty}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement x="4" y="0" width="240" height="20"/>
+					<reportElement x="0" y="0" width="244" height="20"/>
 					<box>
 						<pen lineWidth="0.5"/>
 						<topPen lineWidth="0.5"/>
@@ -209,12 +213,13 @@ ORDER BY
 					<textFieldExpression class="java.lang.String"><![CDATA[$F{dgs_surgicallist_d_name} + "(  " + $F{dgs_surgicallist_d_srno} + "  )"]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement x="387" y="0" width="74" height="20" forecolor="#000000"/>
-					<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
-						<topPen lineWidth="0.5" lineStyle="Solid"/>
-						<leftPen lineWidth="0.5" lineStyle="Solid"/>
-						<bottomPen lineWidth="0.5" lineStyle="Solid"/>
-						<rightPen lineWidth="0.5" lineStyle="Solid"/>
+					<reportElement x="387" y="0" width="75" height="20" forecolor="#000000"/>
+					<box>
+						<pen lineWidth="0.5"/>
+						<topPen lineWidth="0.5"/>
+						<leftPen lineWidth="0.5"/>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
 					</box>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font isBold="true"/>
@@ -228,14 +233,14 @@ ORDER BY
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="104" splitType="Stretch">
+		<band height="110" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="70" width="52" height="20"/>
 				<textElement/>
 				<text><![CDATA[Date From]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="24" width="542" height="20"/>
+				<reportElement x="0" y="24" width="570" height="20"/>
 				<textElement>
 					<font size="14"/>
 				</textElement>
@@ -274,33 +279,33 @@ ORDER BY
 				<textFieldExpression class="java.util.Date"><![CDATA[$P{todate}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="462" y="84" width="44" height="20"/>
+				<reportElement x="461" y="90" width="44" height="20"/>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
 					<topPen lineWidth="0.5" lineStyle="Solid"/>
 					<leftPen lineWidth="0.5" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
 					<rightPen lineWidth="0.5" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Pcent(%)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="244" y="84" width="71" height="20"/>
+				<reportElement x="244" y="90" width="67" height="20"/>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
 					<topPen lineWidth="0.5" lineStyle="Solid"/>
 					<leftPen lineWidth="0.5" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
 					<rightPen lineWidth="0.5" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Annul Estmt]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="4" y="84" width="240" height="20"/>
+				<reportElement x="0" y="90" width="244" height="20"/>
 				<box>
 					<pen lineWidth="0.5"/>
 					<topPen lineWidth="0.5"/>
@@ -314,38 +319,38 @@ ORDER BY
 				<text><![CDATA[Item Name]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="316" y="84" width="72" height="20"/>
+				<reportElement x="311" y="90" width="76" height="20"/>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
 					<topPen lineWidth="0.5" lineStyle="Solid"/>
 					<leftPen lineWidth="0.5" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
 					<rightPen lineWidth="0.5" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Receipt Qnty]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="506" y="84" width="63" height="20"/>
+				<reportElement x="505" y="90" width="65" height="20"/>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
 					<topPen lineWidth="0.5" lineStyle="Solid"/>
 					<leftPen lineWidth="0.5" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
 					<rightPen lineWidth="0.5" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[Value (Rs.)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="387" y="84" width="75" height="20"/>
+				<reportElement x="387" y="90" width="75" height="20"/>
 				<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
 					<topPen lineWidth="0.5" lineStyle="Solid"/>
 					<leftPen lineWidth="0.5" lineStyle="Solid"/>
 					<bottomPen lineWidth="0.5" lineStyle="Solid"/>
 					<rightPen lineWidth="0.5" lineStyle="Solid"/>
 				</box>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
+				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="false"/>
 				</textElement>
 				<text><![CDATA[Balance]]></text>
@@ -362,7 +367,7 @@ ORDER BY
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="28" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="191" y="0" width="80" height="20"/>
 				<textElement textAlignment="Right"/>
