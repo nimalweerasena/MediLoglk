@@ -30,13 +30,12 @@ public final class MDI extends javax.swing.JFrame {
         lblttle1.setText(dbconnector.dbname);
 
         jLabel2.setText("Version 3.5.0");
-        
-        
+
+
         String reportDir = System.getProperty("user.dir");
-        System.out.println(reportDir);
         String filename = "\\icons\\Icon24_24.png";
         setIconImage(Toolkit.getDefaultToolkit().getImage(reportDir + filename));
-        
+
     }
 
     void setuser(String suser) {
@@ -1236,7 +1235,7 @@ public final class MDI extends javax.swing.JFrame {
     }//GEN-LAST:event_mnumainstock1ActionPerformed
 
     private void mnusubtituteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnusubtituteActionPerformed
-               String user = User;
+        String user = User;
 
         String admin = voidmodule.admin(user);
         String xy = "Administrator";
