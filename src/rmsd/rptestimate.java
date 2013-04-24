@@ -73,7 +73,6 @@ public class rptestimate extends javax.swing.JInternalFrame {
         btnremoveall = new javax.swing.JButton();
         optall = new javax.swing.JRadioButton();
         opesmtins = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblitemlist = new javax.swing.JTable();
@@ -220,13 +219,6 @@ public class rptestimate extends javax.swing.JInternalFrame {
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -254,9 +246,7 @@ public class rptestimate extends javax.swing.JInternalFrame {
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btngendata, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(btngendata)
                 .addContainerGap())
         );
 
@@ -291,9 +281,7 @@ public class rptestimate extends javax.swing.JInternalFrame {
                 .addComponent(optAestimate, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(btngendata, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(jButton1)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {optAestimate, optall, optgrponepage, optgrptogether});
@@ -633,7 +621,7 @@ public class rptestimate extends javax.swing.JInternalFrame {
                 .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 464, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -987,38 +975,6 @@ public class rptestimate extends javax.swing.JInternalFrame {
         RRyear = cmdyear2.getSelectedItem();
     }//GEN-LAST:event_cmdyear2ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        String fromDate = df.format(txtfromDate.getDate());
-        System.out.println(fromDate);
-        String toDate = df.format(txttoDate.getDate());
-        int Rcount = tblselectlist.getRowCount();
-
-        for (int xx = 0; xx < Rcount; xx++) {
-            try {
-                String icode = tblselectlist.getValueAt(xx, 1).toString();
-                Double Rsum = null;
-                //    String strsql = "SELECT g_Rqnty,g_warehose,g_initprice FROM transaction   WHERE g_itemcode = '" + icode + "'AND g_transtype = '" + "R" + "'AND g_date BETWEEN '" + (fromDate) + "' AND '" + (toDate) + "'";
-                String strsql = "SELECT sum(g_Rqnty)as bal,g_warehose,g_initprice,g_transtype,g_date FROM transaction GROUP BY g_itemcode HAVING g_itemcode = '" + icode + "' AND g_transtype = '" + "R" + "'AND g_date = '" + fromDate + "'";
-                ResultSet rs = dbconnector.Sql_OutResultset(strsql);
-                while (rs.next()) {
-
-
-
-                    Rsum = rs.getDouble(1);
-                    warehouse = rs.getString(2);
-                    Uprize = rs.getDouble(3);
-
-                    System.out.println(Rsum);
-
-
-                }
-            } catch (SQLException ex) {
-                Logger.getLogger(rptestimate.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         DateFormat df = new SimpleDateFormat("yyyy");
         String year = df.format(new java.util.Date());
@@ -1137,7 +1093,6 @@ public class rptestimate extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox cmbcode;
     private javax.swing.JComboBox cmdyear2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
