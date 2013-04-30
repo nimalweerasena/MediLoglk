@@ -29,7 +29,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel1.setText("nimal weerasena");
+        jLabel1.setText("Nimal Weerasena");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -38,7 +38,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(jLabel1)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
